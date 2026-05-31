@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "PAT-995389d8-4eb7-43e5-8e04-df076f11748c",
+    "name": "Tomáš Zenáhlík",
+    "birthNumber": "010101/1234",
+    "doctorNote": "Patient has regular checkups."
+  },
+  {
+    "id": "PAT-882cdadb-6d5e-4ba8-b6d6-5c095b035c3b",
+    "name": "František Syrový",
+    "birthNumber": "660517/4466",
+    "doctorNote": "Bolest v noze"
+  }
+]
