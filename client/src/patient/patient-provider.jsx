@@ -21,22 +21,82 @@ function PatientProvider({ children }) {
       setError(e.message);
     }
   }
+
   async function createPatient(dtoIn) {
+    try {
+      setError(null);
+
+      const response = await fetch(
+        "http://localhost:3000/patient/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dtoIn),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to create patient.");
+      }
+
+      await loadPatients();
+
+      return data;
+    } catch (e) {
+      setError(e.message);
+      throw e;
+    }
+  }
+
+  async function updatePatient(id, dtoIn) {
+    try {
+      setError(null);
+
+      const response = await fetch(
+        `http://localhost:3000/patient/update/${id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dtoIn),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to update patient.");
+      }
+
+      await loadPatients();
+
+      return data;
+    } catch (e) {
+      setError(e.message);
+      throw e;
+    }
+  }
+
+  async function deletePatient(id) {
   try {
     setError(null);
 
-    const response = await fetch("http://localhost:3000/patient/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dtoIn),
-    });
+    const response = await fetch(
+      `http://localhost:3000/patient/delete/${id}`,
+      {
+        method: "POST",
+      }
+    );
 
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.error || "Failed to create patient.");
+      throw new Error(data.error || "Failed to delete patient.");
     }
 
     await loadPatients();
@@ -48,7 +108,6 @@ function PatientProvider({ children }) {
   }
 }
 
-
   useEffect(() => {
     loadPatients();
   }, []);
@@ -59,6 +118,8 @@ function PatientProvider({ children }) {
     handlerMap: {
       loadPatients,
       createPatient,
+      updatePatient,
+      deletePatient,
     },
   };
 
