@@ -18,7 +18,7 @@ function App() {
         <MeetingProvider>
           <AppNavbar />
 
-          <Container className="mt-4">
+          <Container fluid className="mt-4 px-4">
             <Routes>
               <Route path="/" element={<SchedulePage />} />
               <Route path="/patients" element={<PatientListPage />} />

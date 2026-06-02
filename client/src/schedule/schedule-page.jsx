@@ -59,7 +59,7 @@ function SchedulePage() {
       error={meetingError || patientError}
     >
       <div>
-        <h1 className="mb-4">Calendar</h1>
+        <h1 className="mb-4">Medicalendar</h1>
 
         <Button
           variant="primary"
@@ -84,6 +84,7 @@ function SchedulePage() {
           height="auto"
           slotMinTime="06:00:00"
           slotMaxTime="22:00:00"
+          allDaySlot={false}
         />
 
         <MeetingCreateModal

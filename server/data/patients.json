@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "id": "PAT-f7b16fd9-9495-4f69-aaae-dc100e3b5d27",
+    "name": "Tomáš Zenáhlík",
+    "birthNumber": "000630/1768",
+    "doctorNote": "Clinical depression"
+  },
+  {
+    "id": "PAT-cf760e30-32f7-4fa7-ae32-d46f4dbb6ca3",
+    "name": "František Syrový",
+    "birthNumber": "550927/6465",
+    "doctorNote": "Porucha úzkosti"
+  },
+  {
+    "id": "PAT-02a42868-0f67-42e6-b0b2-b379960af117",
+    "name": "David Černý",
+    "birthNumber": "000827/2253",
+    "doctorNote": "Hraniční porucha osobnosti"
+  },
+  {
+    "id": "PAT-2a963c17-191c-4545-b197-6cd7a9b1ade7",
+    "name": "Kateřina Nováková",
+    "birthNumber": "996014/3743",
+    "doctorNote": "Porucha zraku"
+  },
+  {
+    "id": "PAT-cf3280a7-fe2b-4151-8e62-03f0a219c172",
+    "name": "Jonáš Srnka",
+    "birthNumber": "950513/8918",
+    "doctorNote": "Schizofrenie"
+  },
+  {
+    "id": "PAT-a4b84344-6853-41c6-9273-8c1ad58b8765",
+    "name": "Martina Hrubá",
+    "birthNumber": "965206/3157",
+    "doctorNote": "Bipolární porucha"
+  },
+  {
+    "id": "PAT-cfeba94c-4f52-49b1-8f34-71049c223bd2",
+    "name": "Jana Srnková",
+    "birthNumber": "835523/8826",
+    "doctorNote": "Obsedantně-kompulzivní porucha"
+  },
+  {
+    "id": "PAT-541d4d61-7cec-45db-9960-ab1311fda2d9",
+    "name": "Albert Vlček",
+    "birthNumber": "076204/9596",
+    "doctorNote": "Užívání návykových látek"
+  },
+  {
+    "id": "PAT-283d3d5d-4409-43bc-b818-8feb870477a2",
+    "name": "Marie Syrová",
+    "birthNumber": "555423/0990",
+    "doctorNote": "Porucha osobnosti"
+  },
+  {
+    "id": "PAT-39c2910e-8d40-48cc-b549-a9c3ae725ea2",
+    "name": "Kateřina Nováková",
+    "birthNumber": "906202/3003",
+    "doctorNote": "Porucha příjmu potravy"
+  },
+  {
+    "id": "PAT-aca8990e-ae37-456e-9a74-9bd7781dbe15",
+    "name": "Lukáš Wajtr",
+    "birthNumber": "741110/8353",
+    "doctorNote": "Depresivní porucha"
+  },
+  {
+    "id": "PAT-d253a231-7104-413a-b0ae-a35c84ab5c98",
+    "name": "Zuzana Pokorná",
+    "birthNumber": "015603/1733",
+    "doctorNote": "Obsedantně-kompulzivní porucha"
+  }
+]
