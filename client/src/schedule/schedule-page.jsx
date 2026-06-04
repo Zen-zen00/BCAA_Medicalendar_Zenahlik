@@ -12,6 +12,8 @@ import { usePatient } from "../patient/patient-provider";
 import MeetingCreateModal from "../meeting/meeting-create-modal";
 import MeetingUpdateModal from "../meeting/meeting-update-modal";
 
+import { formatDateTime } from "../common/date-utils";
+
 function SchedulePage() {
   const {
     data: meetings,
@@ -119,10 +121,12 @@ function SchedulePage() {
                   <strong>Doctor:</strong> {selectedMeeting.doctor}
                 </p>
                 <p>
-                  <strong>Start:</strong> {selectedMeeting.startTime}
+                  <strong>Start:</strong>{" "}
+                  {formatDateTime(selectedMeeting.startTime)}
                 </p>
                 <p>
-                  <strong>End:</strong> {selectedMeeting.endTime}
+                  <strong>End:</strong>{" "}
+                  {formatDateTime(selectedMeeting.endTime)}
                 </p>
                 <p>
                   <strong>Status:</strong> {selectedMeeting.status}
