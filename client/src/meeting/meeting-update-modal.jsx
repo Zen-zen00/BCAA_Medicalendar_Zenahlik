@@ -13,8 +13,12 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
   const [endTime, setEndTime] = useState("");
   const [meetingNote, setMeetingNote] = useState("");
   const [patientId, setPatientId] = useState("");
-  const [status, setStatus] = useState("upcoming");
+  const [status, setStatus] = useState("Upcoming");
   const [error, setError] = useState(null);
+
+  const isPastMeeting = meeting
+    ? new Date(meeting.startTime) < new Date()
+    : false;
 
   useEffect(() => {
     if (meeting) {
@@ -24,7 +28,7 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
       setEndTime(meeting.endTime || "");
       setMeetingNote(meeting.meetingNote || "");
       setPatientId(meeting.patientId || "");
-      setStatus(meeting.status || "upcoming");
+      setStatus(meeting.status || "Upcoming");
       setError(null);
     }
   }, [meeting]);
@@ -35,15 +39,22 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
     try {
       setError(null);
 
-      await handlerMap.updateMeeting(meeting.id, {
-        name,
-        doctor,
-        startTime,
-        endTime,
-        meetingNote,
-        patientId,
-        status,
-      });
+      if (isPastMeeting) {
+        await handlerMap.updateMeeting(meeting.id, {
+          status,
+          meetingNote,
+        });
+      } else {
+        await handlerMap.updateMeeting(meeting.id, {
+          name,
+          doctor,
+          startTime,
+          endTime,
+          meetingNote,
+          patientId,
+          status,
+        });
+      }
 
       onHide();
     } catch (e) {
@@ -63,12 +74,19 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
         <Modal.Body>
           {error && <Alert variant="danger">{error}</Alert>}
 
+          {isPastMeeting && (
+            <Alert variant="info">
+              This meeting is in the past. Only Status and Meeting note can be changed.
+            </Alert>
+          )}
+
           <Form.Group className="mb-3">
             <Form.Label>Meeting name</Form.Label>
             <Form.Control
               value={name}
               onChange={(event) => setName(event.target.value)}
               required
+              disabled={isPastMeeting}
             />
           </Form.Group>
 
@@ -78,6 +96,7 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
               value={doctor}
               onChange={(event) => setDoctor(event.target.value)}
               required
+              disabled={isPastMeeting}
             />
           </Form.Group>
 
@@ -87,6 +106,7 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
               value={patientId}
               onChange={(event) => setPatientId(event.target.value)}
               required
+              disabled={isPastMeeting}
             >
               <option value="">Select patient</option>
               {patients?.map((patient) => (
@@ -104,6 +124,7 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
               value={startTime}
               onChange={(event) => setStartTime(event.target.value)}
               required
+              disabled={isPastMeeting}
             />
           </Form.Group>
 
@@ -114,6 +135,7 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
               value={endTime}
               onChange={(event) => setEndTime(event.target.value)}
               required
+              disabled={isPastMeeting}
             />
           </Form.Group>
 
@@ -123,9 +145,9 @@ function MeetingUpdateModal({ meeting, show, onHide }) {
               value={status}
               onChange={(event) => setStatus(event.target.value)}
             >
-              <option value="upcoming">Upcoming</option>
-              <option value="finished">Finished</option>
-              <option value="cancelled">Cancelled</option>
+              <option value="Upcoming">Upcoming</option>
+              <option value="Finished">Finished</option>
+              <option value="Cancelled">Cancelled</option>
             </Form.Select>
           </Form.Group>
 

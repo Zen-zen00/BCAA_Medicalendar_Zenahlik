@@ -7,7 +7,7 @@
     "endTime": "2026-06-03T19:00:00",
     "meetingNote": "",
     "patientId": "PAT-f7b16fd9-9495-4f69-aaae-dc100e3b5d27",
-    "status": "upcoming"
+    "status": "Upcoming"
   },
   {
     "id": "MEET-b86cbfc8-08ad-4c51-a8fd-228cd46e6c13",
@@ -17,7 +17,7 @@
     "endTime": "2026-06-03T17:00:00",
     "meetingNote": "",
     "patientId": "PAT-a4b84344-6853-41c6-9273-8c1ad58b8765",
-    "status": "upcoming"
+    "status": "Upcoming"
   },
   {
     "id": "MEET-0aaeaccd-ff3d-47f9-80a5-9b851acf3ac5",
@@ -27,7 +27,7 @@
     "endTime": "2026-06-03T19:00:00",
     "meetingNote": "",
     "patientId": "PAT-2a963c17-191c-4545-b197-6cd7a9b1ade7",
-    "status": "upcoming"
+    "status": "Upcoming"
   },
   {
     "id": "MEET-130f89d3-c1fa-4f17-b24c-a542d37cecf6",
@@ -37,16 +37,26 @@
     "endTime": "2026-06-03T16:00:00",
     "meetingNote": "",
     "patientId": "PAT-541d4d61-7cec-45db-9960-ab1311fda2d9",
-    "status": "upcoming"
+    "status": "Upcoming"
   },
   {
-    "id": "MEET-1db70ae7-4050-4b0a-a4af-3ddb375ef43d",
-    "name": "Konzultace",
-    "doctor": "Vladimíra Vlčková",
-    "startTime": "2026-06-03T14:00:00",
-    "endTime": "2026-06-03T15:00:00",
-    "meetingNote": "",
-    "patientId": "PAT-02a42868-0f67-42e6-b0b2-b379960af117",
-    "status": "upcoming"
+    "id": "MEET-16defde3-69e2-48f8-b687-ed54c1c163ab",
+    "name": "Pravidelná prohlídka",
+    "doctor": "Vladimíra Zenáhlíková",
+    "startTime": "2026-06-20T15:30",
+    "endTime": "2026-06-20T16:00:00",
+    "meetingNote": "Pravidelná měsíční prohlídka",
+    "patientId": "PAT-f7b16fd9-9495-4f69-aaae-dc100e3b5d27",
+    "status": "Finished"
+  },
+  {
+    "id": "MEET-923240f5-d121-4f59-95f2-cc12f10cedaf",
+    "name": "test",
+    "doctor": "test",
+    "startTime": "2026-06-20T15:30:00",
+    "endTime": "2026-06-20T16:00:00",
+    "meetingNote": "Pacient se neukázal, schůzka byla zrušena.",
+    "patientId": "PAT-cf3280a7-fe2b-4151-8e62-03f0a219c172",
+    "status": "Cancelled"
   }
 ]

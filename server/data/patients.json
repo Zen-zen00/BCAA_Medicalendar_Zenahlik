@@ -12,12 +12,6 @@
     "doctorNote": "Porucha úzkosti"
   },
   {
-    "id": "PAT-02a42868-0f67-42e6-b0b2-b379960af117",
-    "name": "David Černý",
-    "birthNumber": "000827/2253",
-    "doctorNote": "Hraniční porucha osobnosti"
-  },
-  {
     "id": "PAT-2a963c17-191c-4545-b197-6cd7a9b1ade7",
     "name": "Kateřina Nováková",
     "birthNumber": "996014/3743",
@@ -70,5 +64,11 @@
     "name": "Zuzana Pokorná",
     "birthNumber": "015603/1733",
     "doctorNote": "Obsedantně-kompulzivní porucha"
+  },
+  {
+    "id": "PAT-47dcf748-c1ce-4641-aba0-36e5f6b4a351",
+    "name": "Adéla Weinsteinová",
+    "birthNumber": "123456/1234",
+    "doctorNote": "Porucha spánku"
   }
 ]

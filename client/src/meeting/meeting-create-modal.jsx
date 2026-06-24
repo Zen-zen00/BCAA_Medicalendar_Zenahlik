@@ -29,7 +29,7 @@ function MeetingCreateModal({ show, onHide }) {
         endTime: `${date}T${endTime}:00`,
         meetingNote,
         patientId,
-        status: "upcoming",
+        status: "Upcoming",
       });
 
       setName("");

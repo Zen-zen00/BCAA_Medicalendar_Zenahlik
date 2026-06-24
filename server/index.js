@@ -129,7 +129,7 @@ if (endDate <= startDate) {
   });
 }
 
-const allowedStatuses = ["upcoming", "finished", "cancelled"];
+const allowedStatuses = ["Upcoming", "Finished", "Cancelled"];
 
 if (status && !allowedStatuses.includes(status)) {
   return res.status(400).json({
@@ -189,13 +189,57 @@ app.post("/meeting/update/:id", (req, res) => {
     });
   }
 
+  const allowedStatuses = ["Upcoming", "Finished", "Cancelled"];
+  const now = new Date();
+
+  const existingStartDate = new Date(existingMeeting.startTime);
+  const isExistingMeetingInPast = existingStartDate < now;
+
+  // If meeting is already in the past, only status can be updated.
+  if (isExistingMeetingInPast) {
+    const requestKeys = Object.keys(req.body);
+  const allowedKeys = ["status", "meetingNote"];
+  const hasInvalidKey = requestKeys.some(
+  (key) => !allowedKeys.includes(key)
+  );
+
+    if (hasInvalidKey) {
+     return res.status(400).json({
+       error: "Past meetings can only update status and meeting note."
+    });
+   }
+
+    if (!req.body.status || !allowedStatuses.includes(req.body.status)) {
+      return res.status(400).json({
+        error: "Invalid meeting status."
+      });
+    }
+
+    const updatedMeeting = meetingDao.update(req.params.id, {
+     ...existingMeeting,
+     status: req.body.status ?? existingMeeting.status,
+     meetingNote:
+        req.body.meetingNote ?? existingMeeting.meetingNote,
+      id: existingMeeting.id,
+    });
+
+    return res.json(updatedMeeting);
+  }
+
+  // Future meetings can be updated normally.
   const updatedMeetingData = {
     ...existingMeeting,
     ...req.body,
     id: existingMeeting.id
   };
 
-  if (!updatedMeetingData.name || !updatedMeetingData.doctor || !updatedMeetingData.startTime || !updatedMeetingData.endTime || !updatedMeetingData.patientId) {
+  if (
+    !updatedMeetingData.name ||
+    !updatedMeetingData.doctor ||
+    !updatedMeetingData.startTime ||
+    !updatedMeetingData.endTime ||
+    !updatedMeetingData.patientId
+  ) {
     return res.status(400).json({
       error: "Meeting name, doctor, start time, end time and patient are required."
     });
@@ -211,7 +255,6 @@ app.post("/meeting/update/:id", (req, res) => {
 
   const startDate = new Date(updatedMeetingData.startTime);
   const endDate = new Date(updatedMeetingData.endTime);
-  const now = new Date();
 
   if (startDate < now) {
     return res.status(400).json({
@@ -225,9 +268,10 @@ app.post("/meeting/update/:id", (req, res) => {
     });
   }
 
-  const allowedStatuses = ["upcoming", "finished", "cancelled"];
-
-  if (updatedMeetingData.status && !allowedStatuses.includes(updatedMeetingData.status)) {
+  if (
+    updatedMeetingData.status &&
+    !allowedStatuses.includes(updatedMeetingData.status)
+  ) {
     return res.status(400).json({
       error: "Invalid meeting status."
     });

@@ -72,22 +72,25 @@ function SchedulePage() {
         </Button>
 
         <FullCalendar
-          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          initialView="timeGridWeek"
-          headerToolbar={{
-            left: "prev,next today",
-            center: "title",
-            right: "dayGridMonth,timeGridWeek,timeGridDay",
-          }}
-          events={events}
-          eventClick={(info) => {
-            setSelectedMeeting(info.event.extendedProps.meeting);
-          }}
-          height="auto"
-          slotMinTime="06:00:00"
-          slotMaxTime="22:00:00"
-          allDaySlot={false}
-        />
+  plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+  initialView={localStorage.getItem("calendarView") || "timeGridDay"}
+  headerToolbar={{
+    left: "prev,next today",
+    center: "title",
+    right: "dayGridMonth,timeGridWeek,timeGridDay",
+  }}
+  datesSet={(info) => {
+    localStorage.setItem("calendarView", info.view.type);
+  }}
+  events={events}
+  eventClick={(info) => {
+    setSelectedMeeting(info.event.extendedProps.meeting);
+  }}
+  height="auto"
+  slotMinTime="06:00:00"
+  slotMaxTime="22:00:00"
+  allDaySlot={false}
+/>
 
         <MeetingCreateModal
           show={showCreateModal}

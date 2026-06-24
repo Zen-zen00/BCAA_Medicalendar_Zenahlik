@@ -24,7 +24,7 @@ function create(meeting) {
     endTime: meeting.endTime,
     meetingNote: meeting.meetingNote || "",
     patientId: meeting.patientId,
-    status: meeting.status || "upcoming"
+    status: meeting.status || "Upcoming"
   };
 
   meetings.push(newMeeting);
