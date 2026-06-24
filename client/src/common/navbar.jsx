@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 function AppNavbar() {
   return (
     <Navbar bg="dark" variant="dark">
-      <Container>
+      <Container fluid className="px-4">
         <Navbar.Brand as={Link} to="/">
-          Medicalendar
+         <img
+           src="/medicalendar.png"
+           alt="Medicalendar"
+            className="navbar-logo"
+          />
         </Navbar.Brand>
 
         <Nav>

@@ -11,6 +11,8 @@ import { MeetingProvider } from "./meeting/meeting-provider";
 import PatientListPage from "./patient/patient-list-page";
 import SchedulePage from "./schedule/schedule-page";
 
+import "./App.css";
+
 function App() {
   return (
     <BrowserRouter>

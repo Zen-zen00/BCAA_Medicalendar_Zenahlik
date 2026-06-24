@@ -5,6 +5,7 @@ import StateResolver from "../common/state-resolver";
 import { usePatient } from "./patient-provider";
 import PatientDetailModal from "./patient-detail-modal";
 import PatientCreateModal from "./patient-create-modal";
+import { Link } from "react-router-dom";
 
 function PatientListPage() {
   const { data, error } = usePatient();

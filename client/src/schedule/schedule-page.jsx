@@ -14,6 +14,8 @@ import MeetingUpdateModal from "../meeting/meeting-update-modal";
 
 import { formatDateTime } from "../common/date-utils";
 
+import { Link } from "react-router-dom";
+
 function SchedulePage() {
   const {
     data: meetings,
